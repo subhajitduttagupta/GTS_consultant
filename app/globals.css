@@ -1,0 +1,749 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 210 100% 35%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+
+    --chart-1: 210 100% 35%;
+    --chart-2: 160 100% 40%;
+    --chart-3: 30 100% 50%;
+    --chart-4: 260 100% 50%;
+    --chart-5: 320 100% 45%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+  .animation-delay-600 {
+    animation-delay: 0.6s;
+  }
+}
+
+/* Enhanced Service Card Animations */
+.service-card-enhanced {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.service-card-enhanced:hover {
+  transform: translateY(-8px) rotateX(2deg);
+}
+
+.service-card-overview:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* Corner Fold Animation */
+.corner-fold {
+  position: relative;
+  overflow: hidden;
+}
+
+.corner-fold::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 50px 50px;
+  border-color: transparent transparent #f97316 transparent;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.corner-fold:hover::before {
+  border-width: 0 0 60px 60px;
+}
+
+/* Paper Fold Effect */
+.paper-fold {
+  position: relative;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.paper-fold::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  background: linear-gradient(225deg, #f97316 0%, #ea580c 100%);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  clip-path: polygon(100% 0%, 0% 0%, 100% 100%);
+}
+
+.paper-fold:hover::after {
+  width: 80px;
+  height: 80px;
+}
+
+.paper-fold:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom animation classes */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Hover animations for service and project cards */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project-card {
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card .project-image {
+  transition: transform 0.6s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-card .project-overlay {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+/* Navigation animations */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: hsl(var(--primary));
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Button animations */
+.animated-button {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.animated-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.7s ease;
+  z-index: -1;
+}
+
+.animated-button:hover::before {
+  left: 100%;
+}
+
+/* Scroll to top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: hsl(var(--primary));
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hero section wave animation */
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,224C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Client logo animation */
+.client-logo {
+  transition: filter 0.3s ease, transform 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.client-logo:hover {
+  filter: grayscale(0);
+  transform: scale(1.05);
+}
+
+/* Enhanced slider animations */
+.slide-enter {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.slide-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
+}
+
+.slide-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-exit-active {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 700ms ease-in-out, transform 700ms ease-in-out;
+}
+
+/* Enhanced button animations for slider */
+.slider-button {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.slider-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.7s ease;
+  z-index: -1;
+}
+
+.slider-button:hover::before {
+  left: 100%;
+}
+
+.slider-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Backdrop blur support for older browsers */
+@supports not (backdrop-filter: blur(10px)) {
+  .backdrop-blur-sm {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Enhanced navigation controls */
+.nav-control {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-control:hover {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transform: scale(1.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Slide indicator animations */
+.slide-indicator {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slide-indicator:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.slide-indicator.active {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+/* Progress bar animation */
+.progress-bar {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Scroll indicator animation */
+.scroll-indicator {
+  animation: scrollPulse 2s infinite;
+}
+
+@keyframes scrollPulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(5px);
+  }
+}
+
+/* Enhanced particle animations */
+.particle {
+  animation: float 6s ease-in-out infinite;
+}
+
+.particle:nth-child(odd) {
+  animation-delay: -2s;
+}
+
+.particle:nth-child(even) {
+  animation-delay: -4s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+/* Responsive enhancements */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 2rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .nav-control {
+    width: 40px;
+    height: 40px;
+  }
+
+  .slide-indicator {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-button {
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .nav-control {
+    border: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .slide-indicator {
+    border: 1px solid white;
+  }
+
+  .slide-indicator.active {
+    background-color: white;
+    border: 2px solid black;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .slide-enter-active,
+  .slide-exit-active {
+    transition: opacity 300ms ease-in-out;
+    transform: none;
+  }
+
+  .nav-control:hover,
+  .slide-indicator:hover,
+  .slider-button:hover {
+    transform: none;
+  }
+
+  .particle {
+    animation: none;
+  }
+
+  .scroll-indicator {
+    animation: none;
+  }
+
+  .service-card-enhanced:hover,
+  .service-card-overview:hover {
+    transform: none;
+  }
+}
+
+/* Add mobile-first responsive utilities and optimizations */
+
+/* Mobile-first responsive breakpoints */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Hero section mobile optimizations */
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hero-button {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  /* Navigation controls mobile */
+  .nav-control {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-control svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  /* Slide indicators mobile */
+  .slide-indicator {
+    width: 8px;
+    height: 8px;
+  }
+
+  /* Service cards mobile */
+  .service-card-enhanced,
+  .service-card-overview {
+    margin-bottom: 1rem;
+  }
+
+  /* Project cards mobile */
+  .project-card-enhanced {
+    margin-bottom: 1rem;
+  }
+
+  /* Stats section mobile */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Team section mobile */
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Form elements mobile */
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Button spacing mobile */
+  .button-group {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .button-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .hero-title {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  .nav-control,
+  .slide-indicator,
+  .animated-button,
+  .service-card-enhanced,
+  .project-card-enhanced {
+    transform: none !important;
+  }
+
+  .nav-control:active,
+  .slide-indicator:active,
+  .animated-button:active {
+    transform: scale(0.95);
+  }
+
+  /* Increase touch targets */
+  .nav-control {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .slide-indicator {
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 50%;
+  }
+
+  /* Remove hover effects on touch devices */
+  .service-card-enhanced:hover,
+  .project-card-enhanced:hover,
+  .service-card-overview:hover {
+    transform: none;
+  }
+}
+
+/* Improved text readability on mobile */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Improved spacing */
+  .section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .card-padding {
+    padding: 1.5rem;
+  }
+}
+
+/* Image optimization for mobile */
+@media (max-width: 640px) {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-image,
+  .project-image,
+  .service-image {
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+/* Scroll performance optimization */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+}
+
+/* Mobile-specific animations */
+@media (prefers-reduced-motion: no-preference) and (max-width: 640px) {
+  .fade-up,
+  .slide-in-left,
+  .slide-in-right {
+    transition-duration: 0.4s;
+  }
+}
