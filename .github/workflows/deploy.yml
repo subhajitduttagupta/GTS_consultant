@@ -28,6 +28,9 @@ jobs:
         bun install --frozen-lockfile
     
     - name: Build application
+      env:  
+        RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        NEXT_PUBLIC_BASE_URL: https://gtsconsultant.in
       run: |
         export PATH="$HOME/.bun/bin:$PATH"
         bun run build
