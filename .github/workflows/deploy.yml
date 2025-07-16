@@ -45,6 +45,8 @@ jobs:
         script: |
           cd /var/www/gts-consultant
           git pull origin main
+          export RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
+          export NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }}
           docker-compose down
           docker-compose up -d --build
           docker system prune -f
