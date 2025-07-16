@@ -1,6 +1,12 @@
 # Stage 1: Build the Next.js application with Bun
 FROM oven/bun:1.1.17-alpine AS builder
 
+
+ARG RESEND_API_KEY
+ARG NEXT_PUBLIC_BASE_URL
+
+ENV RESEND_API_KEY=$RESEND_API_KEY
+ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL
 # Set working directory
 WORKDIR /app
 

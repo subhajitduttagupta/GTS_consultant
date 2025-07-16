@@ -2,7 +2,11 @@ version: '3.8'
 
 services:
   nextjs-app:
-    build: .
+    build:
+      context: .
+      args:
+        RESEND_API_KEY: ${RESEND_API_KEY}
+        NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL}
     expose:
       - "3000"  # Only expose to internal network
     restart: unless-stopped
