@@ -48,8 +48,8 @@ Follow these instructions to set up and run the project locally.
 
 Make sure you have the following installed:
 
--   Node.js (v18.x or later)
--   npm or Yarn
+-   Node.js (v20.x or later)
+-   bun
 
 ### Installation
 
@@ -61,9 +61,7 @@ Make sure you have the following installed:
 
 2.  Install dependencies:
     ```bash
-    npm install
-    # or
-    yarn install
+    bun install
     ```
 
 ### Environment Variables
