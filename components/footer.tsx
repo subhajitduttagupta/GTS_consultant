@@ -117,6 +117,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p>© {new Date().getFullYear()} Globe Tek Solution. All rights reserved.</p>
+          <p>Made by Subhajit Duttagupta</p>
         </div>
       </div>
 
