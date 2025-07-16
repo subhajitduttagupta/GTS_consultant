@@ -81,9 +81,10 @@ Replace `your_resend_api_key_here` with your actual Resend API key. You can obta
 To run the development server:
 
 ```bash
-npm run dev
+bun run dev
 # or
-yarn dev
+bun run build
+bun run start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
@@ -112,15 +113,4 @@ The website will automatically reload as you edit the files.
 └── tsconfig.json        # TypeScript configuration
 ```
 
-## Deployment
 
-This project can be easily deployed to Vercel, the creators of Next.js. For more details, refer to the [Next.js deployment documentation](https://nextjs.org/docs/deployment).
-
-## Contact
-
-For any inquiries or support, please contact us at:
-
--   **Email**: info@gtsconsultant.in
--   **Phone**: +91 94336 63312, +91 98308 87070
--   **LinkedIn**: [Globe Tek Solution](https://www.linkedin.com/company/globe-tek-solution)
-```
