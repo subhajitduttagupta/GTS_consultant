@@ -7,8 +7,8 @@ services:
       args:
         RESEND_API_KEY: ${RESEND_API_KEY}
         NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL}
-    expose:
-      - "3000"  # Only expose to internal network
+    ports:
+      - "3010:3000"  # Now expose to host directly
     restart: unless-stopped
     environment:
       - NODE_ENV=production
