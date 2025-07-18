@@ -15,12 +15,12 @@ const ModernFeaturedProjects = () => {
   const projects = [
     {
       id: 1,
-      title: "E&I Engineering for Uranium Drier Calcinur System",
+      title: "E&I Engineering for Uranium Drier Calciner System",
       category: "Electrical & Instrumentation Engineering",
       location: "DASA, Nigeria",
       year: "2025",
       description:
-        "Complete electrical and instrumentation design for the Drier Calcinur system in a uranium slug handling facility, featuring radiation-tolerant automation and high-reliability controls.",
+        "Complete electrical and instrumentation design for the Drier Calciner system in a uranium slug handling facility, featuring radiation-tolerant automation and high-reliability controls.",
       image: "/images/10.jpeg",
       gradient: "from-cyan-500 to-blue-500",
       bgGradient: "from-cyan-50 to-blue-50",

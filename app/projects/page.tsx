@@ -10,13 +10,13 @@ export default function ProjectsPage() {
   const projects = [
     {
       id: 1,
-      title: "Electrical & Instrumentation Engineering for Uranium Drier Calcinur System",
+      title: "Electrical & Instrumentation Engineering for Uranium Drier Calciner System",
       category: "Electrical & Instrumentation Engineering",
       location: "DASA, Nigeria",
       locationKey: "dasa",
       year: "2025",
       description:
-        "Complete electrical and instrumentation engineering for the Drier Calcinur unit of a uranium slug handling system, executed on behalf of GEM Drytech Solution.",
+        "Complete electrical and instrumentation engineering for the Drier Calciner unit of a uranium slug handling system, executed on behalf of GEM Drytech Solution.",
       image: "/images/10.jpeg",
       sector: "nuclear",
       subSector: "uranium-processing",

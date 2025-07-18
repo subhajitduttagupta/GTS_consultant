@@ -8,16 +8,16 @@ const getProject = (id: string) => {
   const projects = [
     {
       id: 1,
-      title: "Electrical & Instrumentation Engineering for Drier Calcinur - Uranium Slug Handling System",
+      title: "Electrical & Instrumentation Engineering for Drier Calciner - Uranium Slug Handling System",
       category: "Electrical & Instrumentation Engineering",
       location: "DASA, Nigeria",
       year: "2025",
       sectors: ["Nuclear", "Industrial", "Engineering Services"],
       services: ["Electrical Design", "Instrumentation Engineering", "System Integration"],
       description:
-        "Complete electrical and instrumentation engineering for the Drier Calcinur unit within a uranium slug handling system at a nuclear facility in Nigeria. Delivered on behalf of GEM Drytech Solution.",
+        "Complete electrical and instrumentation engineering for the Drier Calciner unit within a uranium slug handling system at a nuclear facility in Nigeria. Delivered on behalf of GEM Drytech Solution.",
       fullDescription:
-        "GEM Drytech Solution entrusted our team with the complete electrical and instrumentation (E&I) engineering of the Drier Calcinur system, a critical component of a uranium slug handling operation at the DASA site in Nigeria. The scope encompassed detailed design, specification, procurement assistance, and system integration of power and control systems tailored to stringent nuclear industry standards. Our work included control panel design, motor and sensor selection, loop diagrams, PLC integration, and compliance with international safety and radiation protection norms. Seamless coordination with process engineers and strict adherence to project timelines were instrumental in the successful delivery of this high-stakes project.",
+        "GEM Drytech Solution entrusted our team with the complete electrical and instrumentation (E&I) engineering of the Drier Calciner system, a critical component of a uranium slug handling operation at the DASA site in Nigeria. The scope encompassed detailed design, specification, procurement assistance, and system integration of power and control systems tailored to stringent nuclear industry standards. Our work included control panel design, motor and sensor selection, loop diagrams, PLC integration, and compliance with international safety and radiation protection norms. Seamless coordination with process engineers and strict adherence to project timelines were instrumental in the successful delivery of this high-stakes project.",
       image: "/images/10.jpeg",
       challenge:
         "The client required a high-reliability E&I system capable of withstanding harsh operational environments and meeting rigorous nuclear safety standards. Integration with an existing partially-commissioned infrastructure presented added complexity.",
